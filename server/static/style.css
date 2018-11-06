@@ -1,0 +1,25 @@
+body {
+  text-align: center;
+//  background: #54ff9f;
+  color: #fff5ee;
+}
+.button {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  font: bold 16px Arial;
+//  background-color: #EEEEEE;
+  padding: 20px;
+  border: 1px solid black;
+  margin: 10px;
+}
+.green {
+  background: green;
+}
+.red {
+  background: red;
+}
+.yellow {
+  background: yellow;
+}

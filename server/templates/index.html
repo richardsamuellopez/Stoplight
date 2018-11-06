@@ -1,0 +1,24 @@
+<html>
+<link rel="stylesheet" href="../static/style.css"/>
+<link rel="manifest" href="../static/manifest.json"/>
+<link rel="apple-touch-icon-precomposed" sizes="57x57"  href="../static/stoplight-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>Ada's Stoplight</title>
+<body class="{{'red' if ledRed == 1}}{{'yellow' if ledYellow == 1}}{{'green' if ledGreen ==1}}">
+<h1>Ada's Stoplight</h1>
+<h2>Status</h2>
+<h3> RED - {{ledRed}}</h3>
+<h3> YELLOW - {{ledYellow}}</h3>
+<h3> GREEN - {{ledGreen}}</h3>
+<h2>Led Control</h2>
+<div>
+  <a href="/ledRed/on" class="button red"></a>
+</div>
+<div>
+  <a href="/ledYellow/on" class="button yellow"></a>
+</div>
+<div>
+  <a href="/ledGreen/on" class="button green"></a>
+</div>
+</body>
+</html>

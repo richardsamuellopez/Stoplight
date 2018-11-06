@@ -1,0 +1,15 @@
+{
+	
+  "short_name": "Ada's Stoplight",
+  "name": "Ada's Stoplight",
+  "icons": [
+    {
+      "src": "stoplight-icon.png",
+      "size": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}	
