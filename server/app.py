@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
+
 app = Flask(__name__)
 
 GPIO.setmode(GPIO.BCM)
@@ -37,7 +38,7 @@ for x in range(9, 12):
       print("UNKNOWN")
   else:
     GPIO.setup(x, GPIO.OUT)
-
+@app.route('/index')
 @app.route('/')
 def index():
   ledRedSts = GPIO.input(ledRed)
@@ -70,6 +71,10 @@ def do(deviceName, action):
   'ledYellow' : ledYellowSts,
   'ledGreen' : ledGreenSts }
   return render_template('index.html', **templateData )
+@app.route('/party')
+def party():
+#  stoplight.party()
+  return redirect(url_for('index'))
 @app.route('/cakes')
 def cakes():
   return 'Yummy cakes!'
