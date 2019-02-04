@@ -1,5 +1,9 @@
 import RPi.GPIO as GPIO
 from flask import Flask, render_template, request, redirect, url_for
+import sys
+import os
+sys.path.append(os.path.abspath("/home/pi/Desktop/Stoplight"))
+from stoplight import *
 
 app = Flask(__name__)
 
@@ -73,7 +77,10 @@ def do(deviceName, action):
   return render_template('index.html', **templateData )
 @app.route('/party')
 def party():
-#  stoplight.party()
+#  setup()
+#  party()
+  fun()
+  setlight()
   return redirect(url_for('index'))
 @app.route('/cakes')
 def cakes():

@@ -7,26 +7,27 @@ sleepHour = 19
 wakeMin = 45
 snoozeMin = 30
 
-def setup():
-  GPIO.setmode(GPIO.BCM)
-  GPIO.setwarnings(False)
+print("setup")
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
 
-  GPIO.setup(9, GPIO.OUT) #Red
-  GPIO.setup(10, GPIO.OUT)#Yellow
-  GPIO.setup(11, GPIO.OUT)#Green
-  return
+GPIO.setup(9, GPIO.OUT) #Red
+GPIO.setup(10, GPIO.OUT)#Yellow
+GPIO.setup(11, GPIO.OUT)#Green
 
-def party():
+def fun():
+  print("FUN")
   for x in range(10):
     for y in range(9, 12):
-      GPIO.output(y, 1)
+      GPIO.output(y,1)
       time.sleep(.3)
-    for z in range(9,12):
+    for z in range(9, 12):
       GPIO.output(z, 0)
       time.sleep(.3)
   return
 
 def setlight():
+  print("setlight")
   currentHour = datetime.datetime.now().hour
   currentMin = datetime.datetime.now().minute
   #Yellow
@@ -49,6 +50,5 @@ def setlight():
   #GPIO.cleanup()
   return
 
-setup()
-party()
+fun()
 setlight()
