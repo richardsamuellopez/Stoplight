@@ -1,5 +1,7 @@
 # Stoplight for Pi
 
+## Install flask
+`sudo apt-get install python3-flask`
 
 ## Crontabs
 View with `crontab -l`
