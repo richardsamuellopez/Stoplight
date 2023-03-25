@@ -1,4 +1,4 @@
-# Stoplight for Pi
+# Stoplight for Raspberry Pi
 
 
 ## Crontabs
