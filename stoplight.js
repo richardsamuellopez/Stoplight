@@ -10,15 +10,7 @@ function currentTime() {
   let ss = date.getSeconds();
   let ampm = "AM";
 
-  if(hh == 0){
-      hh = 12;
-  }
-  if(hh > 12){
-      hh = hh - 12;
-      ampm = "PM";
-   }
-
-  (hh <= wakeUpHour && mm < wakeUpMin)|| hh > sleepHour ? (
+  ((hh <= wakeUpHour && mm < wakeUpMin) || hh >= sleepHour) ? (
     document.getElementById("body").classList.add('red'),
     document.getElementById("body").classList.remove('green'),
     document.getElementById("body").classList.remove('yellow')
@@ -33,6 +25,14 @@ function currentTime() {
     document.getElementById("body").classList.remove('green');
     document.getElementById("body").classList.remove('red');
   }
+
+  if(hh == 0){
+      hh = 12;
+  }
+  if(hh > 12){
+      hh = hh - 12;
+      ampm = "PM";
+   }
 
   hh = (hh < 10) ? "0" + hh : hh;
   mm = (mm < 10) ? "0" + mm : mm;
