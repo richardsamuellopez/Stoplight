@@ -1,45 +1,59 @@
-function currentTime() {
-  const showSeconds = false;
-  const wakeUpHour = 7;
-  const wakeUpMin = 00;
-  const sleepHour = 20;
-  const snoozeMin = 10;
-  let date = new Date(); 
-  let hh = date.getHours();
-  let mm = date.getMinutes();
-  let ss = date.getSeconds();
-  let ampm = "AM";
+const showSeconds = false;
+const greenHour = 7;
+const greenMinute = 0;
+const redHour = 20;
+const redMinute = 0;
+const yellowHour = 6;
+const yellowMinute = 50;
 
-  ((hh <= wakeUpHour && mm < wakeUpMin) || hh >= sleepHour) ? (
-    document.getElementById("body").classList.add('red'),
-    document.getElementById("body").classList.remove('green'),
-    document.getElementById("body").classList.remove('yellow')
-  ):(
-    document.getElementById("body").classList.add('green'),
-    document.getElementById("body").classList.remove('red'),
-    document.getElementById("body").classList.remove('yellow')
+function currentTime() {
+  let date = new Date();
+  let hour = date.getHours();
+  let minute = date.getMinutes();
+  let second = date.getSeconds();
+  let ampm = "AM";
+  const bodyElement = document.getElementById("body");
+
+  redLight(hour, minute) ? (
+    bodyElement.classList.add('red'),
+    bodyElement.classList.remove('green'),
+    bodyElement.classList.remove('yellow')
+  ) : yellowLight(hour, minute) ? (
+    bodyElement.classList.add('yellow'),
+    bodyElement.classList.remove('green'),
+    bodyElement.classList.remove('red')
+  ) : (
+    bodyElement.classList.add('green'),
+    bodyElement.classList.remove('red'),
+    bodyElement.classList.remove('yellow')
   );
 
-  if(hh == wakeUpHour - 1 && mm >= 60 - snoozeMin){
-    document.getElementById("body").classList.add('yellow');
-    document.getElementById("body").classList.remove('green');
-    document.getElementById("body").classList.remove('red');
+  if(hour == 0){
+      hour = 12;
   }
-
-  if(hh == 0){
-      hh = 12;
-  }
-  if(hh > 12){
-      hh = hh - 12;
+  if(hour > 12){
+      hour = hour - 12;
       ampm = "PM";
    }
 
-  hh = (hh < 10) ? "0" + hh : hh;
-  mm = (mm < 10) ? "0" + mm : mm;
-  ss = (ss < 10) ? "0" + ss : ss;
+  hour = (hour < 10) ? `0 ${hour}` : hour;
+  minute = (minute < 10) ? `0 ${minute}` : minute;
+  second = (second < 10) ? `0 ${second}` : second;
   
-  let time = `${hh}:${mm}${showSeconds ? `:${ss}` : ''} ${ampm}`;
+  let time = `${hour}:${minute}${showSeconds ? `:${second}` : ''} ${ampm}`;
   document.getElementById("clock").innerText = time; 
 
   let t = setTimeout(function(){ currentTime() }, showSeconds ? 1000 : 60000);
 }
+
+const redLight = (hour, minute) => {
+  if (hour < greenHour) return true;
+  if (hour == greenHour && minute < greenMinute) return true;
+  if (hour > redHour) return true;
+  if (hour == redHour && minute >= redMinute) return true;
+  return false;
+};
+
+const yellowLight = (hour, minute) => {
+  return (hour == yellowHour && minute >= yellowMinute) ? true : false;
+};
