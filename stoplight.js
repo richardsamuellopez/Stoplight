@@ -36,9 +36,9 @@ function currentTime() {
       ampm = "PM";
    }
 
-  hour = (hour < 10) ? `0 ${hour}` : hour;
-  minute = (minute < 10) ? `0 ${minute}` : minute;
-  second = (second < 10) ? `0 ${second}` : second;
+  hour = (hour < 10) ? `0${hour}` : hour;
+  minute = (minute < 10) ? `0${minute}` : minute;
+  second = (second < 10) ? `0${second}` : second;
   
   let time = `${hour}:${minute}${showSeconds ? `:${second}` : ''} ${ampm}`;
   document.getElementById("clock").innerText = time; 
