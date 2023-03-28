@@ -2,7 +2,7 @@ body {
   text-align: center;
   font-family: Arial, sans-serif;
   color: white;
-  font-size: 3em;
+  width: 100%;
 }
 
 .red {
@@ -15,4 +15,10 @@ body {
 
 .green {
   background-color: green;
+}
+
+@media screen and (min-width: 769px) {
+  body {
+    font-size: 3em;
+  }
 }
