@@ -14,14 +14,14 @@ function currentTime() {
   let ampm = "AM";
   const bodyElement = document.getElementById("body");
 
-  redLight(hour, minute) ? (
-    bodyElement.classList.add('red'),
-    bodyElement.classList.remove('green'),
-    bodyElement.classList.remove('yellow')
-  ) : yellowLight(hour, minute) ? (
+  yellowLight(hour, minute) ? (
     bodyElement.classList.add('yellow'),
     bodyElement.classList.remove('green'),
     bodyElement.classList.remove('red')
+  ) : redLight(hour, minute) ? (
+    bodyElement.classList.add('red'),
+    bodyElement.classList.remove('green'),
+    bodyElement.classList.remove('yellow')
   ) : (
     bodyElement.classList.add('green'),
     bodyElement.classList.remove('red'),

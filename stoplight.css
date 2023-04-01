@@ -6,15 +6,15 @@ body {
 }
 
 .red {
-  background-color: red;
+  background-color: rgba(255, 0, 0, 0.728);
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: rgb(255, 166, 0);
 }
 
 .green {
-  background-color: green;
+  background-color: rgba(0, 128, 0, 0.722);
 }
 
 @media screen and (min-width: 769px) {
