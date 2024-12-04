@@ -3,8 +3,10 @@
   <head>
     <meta name="viewport" content="width=device-width, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes">
     <script type="text/javascript" src="./stoplight.js"></script>
     <link rel="stylesheet" href="./stoplight.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/stoplight.png">
     <link rel="apple-touch-icon-precomposed" href="/stoplight.png">
@@ -16,8 +18,28 @@
     <link rel="apple-touch-icon-precomposed" href="/stoplight.png">
     <link rel="icon" href="/stoplight.png" sizes="32x32">
   </head>
-  <body id="body" onload="currentTime();">
-    <h1>ADA & KORA STOPLIGHT</h1>
-    <h2 id = "clock"></h2>
+  <body id="body" onload="start();">
+    <h1 id="title">STOPLIGHT</h1>
+    <h2 id="clock"></h2>
+    <i class="fa fa-cogs"></i>
+    <i class="fa fa-cloud"></i>
+    <i class="fa fa-lock"></i>
+    <i class="fa fa-unlock"></i>
+    <i class="fa fa-unlock-alt"></i>
+    <i class="fa fa-clock-o"></i>
+    <i class="fa fa-trash"></i>
+    <i class="fa fa-trash-o"></i>
+    <i class="fa fa-plus"></i>
+    <i class="fa fa-times"></i>
+    <i class="fa fa-bars"></i>
+    <form id="myForm">
+      <label for="name">Title:</label>
+      <input type="text" id="name" name="name" required>
+      <label>Timers: </label>
+      <!-- <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required> -->
+    
+      <button type="submit">Submit</button>
+    </form>
   </body>
 </html>
